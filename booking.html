@@ -4,7 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Booking Page</title>
+    <title>Business Booking Page | L-CONNECT</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book professional services and appointments online via L-CONNECT.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="L Connect.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" id="og-title-meta" content="Book with us on L-CONNECT">
+    <meta property="og:description" id="og-desc-meta" content="Select a service and book your spot in seconds.">
+    <meta property="og:image" id="og-image-meta" content="https://l-connect.com/portal-preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" id="twitter-title-meta" content="Book with us on L-CONNECT">
+    <meta property="twitter:description" id="twitter-desc-meta" content="Select a service and book your spot in seconds.">
+    <meta property="twitter:image" id="twitter-image-meta" content="https://l-connect.com/portal-preview.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Outfit:wght@400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap"
         rel="stylesheet">
@@ -30,34 +48,19 @@
     <div id="theme-header" class="bg-slate-50 border-b border-slate-200 pt-16 pb-12 px-4 shadow-sm transition-colors duration-500">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
             <div id="biz-logo"
-                class="w-32 h-32 rounded-3xl bg-slate-900 flex items-center justify-center text-white shadow-xl shadow-slate-200 transition-colors duration-500">
-                <span id="biz-logo-icon" class="material-symbols-outlined text-5xl">storefront</span>
+                class="w-32 h-32 rounded-3xl bg-slate-200 animate-pulse flex items-center justify-center text-white shadow-xl shadow-slate-200 transition-colors duration-500">
             </div>
             <div class="text-center md:text-left flex-1">
                 <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
-                    <span id="theme-badge"
-                        class="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-bold uppercase tracking-wider transition-colors duration-500">Verified
-                        Business</span>
+                    <div id="theme-badge" class="h-6 w-24 bg-slate-200 animate-pulse rounded-full"></div>
                 </div>
-                <h1 id="biz-name-title" class="text-4xl font-extrabold text-slate-900 mb-3 tracking-tight transition-colors duration-500">Business Name
-                </h1>
-                <p id="biz-desc-text" class="text-lg text-slate-600 leading-relaxed max-w-2xl transition-colors duration-500">This is where the
-                    business description will be displayed to your clients.</p>
+                <div id="biz-name-title" class="h-10 w-64 bg-slate-200 animate-pulse rounded-lg mb-3 mx-auto md:mx-0"></div>
+                <div id="biz-desc-text" class="h-5 w-full max-w-lg bg-slate-200 animate-pulse rounded-lg mb-2 mx-auto md:mx-0"></div>
+                <div class="h-5 w-3/4 max-w-sm bg-slate-200 animate-pulse rounded-lg mx-auto md:mx-0"></div>
 
                 <div class="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
-                    <div id="theme-pill-1" class="flex items-center gap-2 text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg text-sm transition-colors duration-500">
-                        <span class="material-symbols-outlined text-sm">location_on</span>
-                        <span>Full Service Available</span>
-                    </div>
-                    <div id="theme-pill-2" 
-                        class="flex items-center gap-2 text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-500">
-                        <span id="theme-pill-icon" class="material-symbols-outlined text-sm text-green-500">check_circle</span>
-                        <span id="biz-email-text">contact@business.com</span>
-                    </div>
-                    <a id="biz-phone-pill" href="#" class="hidden items-center gap-2 text-white bg-slate-900 px-4 py-1.5 rounded-lg text-sm font-bold hover:bg-slate-800 transition-all active:scale-95">
-                        <span class="material-symbols-outlined text-sm">call</span>
-                        <span id="biz-phone-text"></span>
-                    </a>
+                    <div class="h-8 w-32 bg-slate-200 animate-pulse rounded-lg"></div>
+                    <div class="h-8 w-40 bg-slate-200 animate-pulse rounded-lg"></div>
                 </div>
             </div>
         </div>
@@ -118,7 +121,7 @@
                     <span class="material-symbols-outlined">close</span>
                 </button>
             </div>
-            <div class="space-y-6">
+            <div id="booking-form-view" class="space-y-6">
                 <div>
                     <p id="selected-service-name" class="font-bold text-slate-900"></p>
                     <p id="selected-service-price" class="text-sm text-slate-500"></p>
@@ -141,6 +144,31 @@
                 <button onclick="confirmBooking()" id="confirm-booking-btn"
                     class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all opacity-50 cursor-not-allowed">
                     Confirm Booking
+                </button>
+            </div>
+
+            <!-- Success State -->
+            <div id="booking-success-view" class="hidden text-center space-y-6">
+                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-4xl">check_circle</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900">Booking Sent!</h3>
+                <p class="text-slate-500">Your appointment request for <span id="success-service-name" class="font-bold"></span> has been sent. We'll notify you once it's approved.</p>
+                
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Add to your calendar</p>
+                    <button onclick="addToCalendar('google')" class="w-full py-4 px-4 bg-white border border-slate-200 rounded-2xl font-bold text-slate-700 flex items-center justify-center gap-3 hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-95 shadow-sm">
+                         <span class="material-symbols-outlined text-red-500">calendar_month</span>
+                         Google Calendar
+                    </button>
+                    <button onclick="addToCalendar('apple')" class="w-full py-4 px-4 bg-white border border-slate-200 rounded-2xl font-bold text-slate-700 flex items-center justify-center gap-3 hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-95 shadow-sm">
+                         <span class="material-symbols-outlined text-blue-500">event</span>
+                         Outlook / iCal
+                    </button>
+                </div>
+
+                <button onclick="closeModal()" class="w-full py-4 text-slate-400 font-bold hover:text-slate-600 transition-colors">
+                    Close Window
                 </button>
             </div>
         </div>
@@ -422,28 +450,52 @@
         };
 
         function renderBusinessInfo(data) {
-            document.getElementById('biz-name-title').textContent = data.name;
-            document.title = data.name + ' - Booking Page';
-            document.getElementById('biz-desc-text').textContent = data.description;
-            document.getElementById('biz-email-text').textContent = data.email;
+            // Remove pulse classes
+            document.getElementById('biz-logo').classList.remove('bg-slate-200', 'animate-pulse');
+            document.getElementById('theme-badge').classList.remove('h-6', 'w-24', 'bg-slate-200', 'animate-pulse', 'rounded-full');
+            
+            // Re-inject content into pulse placeholders
+            const headerContainer = document.getElementById('theme-header');
+            headerContainer.innerHTML = `
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                    <div id="biz-logo" class="w-32 h-32 rounded-3xl bg-slate-900 flex items-center justify-center text-white shadow-xl shadow-slate-200 transition-colors duration-500">
+                        <span id="biz-logo-icon" class="material-symbols-outlined text-5xl">storefront</span>
+                    </div>
+                    <div class="text-center md:text-left flex-1">
+                        <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+                            <span id="theme-badge" class="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full font-bold uppercase tracking-wider transition-colors duration-500">Verified Business</span>
+                        </div>
+                        <h1 id="biz-name-title" class="text-4xl font-extrabold text-slate-900 mb-3 tracking-tight transition-colors duration-500">${data.name}</h1>
+                        <p id="biz-desc-text" class="text-lg text-slate-600 leading-relaxed max-w-2xl transition-colors duration-500">${data.description || 'Welcome to our booking page.'}</p>
 
-            // Phone number pill
-            const phonePill = document.getElementById('biz-phone-pill');
-            if (data.phone_number) {
-                document.getElementById('biz-phone-text').textContent = data.phone_number;
-                phonePill.href = `tel:${data.phone_number}`;
-                phonePill.classList.remove('hidden');
-                phonePill.classList.add('flex');
-            } else {
-                phonePill.classList.add('hidden');
-                phonePill.classList.remove('flex');
-            }
+                        <div class="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+                            <div id="theme-pill-1" class="flex items-center gap-2 text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg text-sm transition-colors duration-500">
+                                <span class="material-symbols-outlined text-sm">location_on</span>
+                                <span>Online Booking</span>
+                            </div>
+                            <div id="theme-pill-2" class="flex items-center gap-2 text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-500">
+                                <span id="theme-pill-icon" class="material-symbols-outlined text-sm text-green-500">check_circle</span>
+                                <span id="biz-email-text">${data.email}</span>
+                            </div>
+                            <a id="biz-phone-pill" href="tel:${data.phone_number}" class="${data.phone_number ? 'flex' : 'hidden'} items-center gap-2 text-white bg-slate-900 px-4 py-1.5 rounded-lg text-sm font-bold hover:bg-slate-800 transition-all active:scale-95">
+                                <span class="material-symbols-outlined text-sm">call</span>
+                                <span id="biz-phone-text">${data.phone_number}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
 
-            const logoContainer = document.getElementById('biz-logo');
+            const fullTitle = `${data.name} | Book Online`;
+            document.title = fullTitle;
+            
+            // Update Meta Tags
+            document.querySelector('meta[name="description"]')?.setAttribute('content', data.description || `Book services with ${data.name} on L-CONNECT.`);
+            document.querySelector('meta[property="og:title"]')?.setAttribute('content', fullTitle);
+            
+            const logoEl = document.getElementById('biz-logo');
             if (data.profile_picture) {
-                logoContainer.innerHTML = `<img src="${data.profile_picture}" class="w-full h-full object-cover" style="border-radius: inherit;" alt="Business Logo">`;
-            } else {
-                logoContainer.innerHTML = `<span id="biz-logo-icon" class="material-symbols-outlined text-5xl">storefront</span>`;
+                logoEl.innerHTML = `<img src="${data.profile_picture}" class="w-full h-full object-cover" style="border-radius: inherit;" alt="Business Logo">`;
             }
             
             renderWorkingHours(data.working_hours);
@@ -564,6 +616,11 @@
         function openBooking(service) {
             const modal = document.getElementById('booking-modal');
             const content = document.getElementById('modal-content');
+            
+            // Reset modal state
+            document.getElementById('booking-form-view').classList.remove('hidden');
+            document.getElementById('booking-success-view').classList.add('hidden');
+            
             document.getElementById('selected-service-name').textContent = service.name;
             document.getElementById('selected-service-price').textContent = service.price;
 
@@ -617,8 +674,13 @@
 
                 if (error) throw error;
 
+                // Show success UI
+                document.getElementById('booking-form-view').classList.add('hidden');
+                document.getElementById('booking-success-view').classList.remove('hidden');
+                document.getElementById('success-service-name').textContent = serviceName;
+                
                 showToast('Booking request sent successfully!', 'success');
-                closeModal();
+                // closeModal(); // Don't close immediately, let them add to calendar
             } catch (err) {
                 console.error("Booking error:", err);
                 showToast("Failed to submit booking: " + err.message, "error");
@@ -738,6 +800,53 @@
                 btn.classList.remove('opacity-50', 'cursor-not-allowed');
             } else {
                 btn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        function addToCalendar(type) {
+            const serviceName = document.getElementById('selected-service-name').textContent;
+            const date = document.getElementById('booking-date-input').value; // YYYY-MM-DD
+            const time = selectedTimeSlot; // HH:MM
+            const bizName = globalBizData?.name || 'Business';
+            
+            if (!date || !time) return;
+
+            // Create dates for the event
+            // Assuming 1 hour duration
+            const startDateTime = new Date(`${date}T${time}:00`);
+            const endDateTime = new Date(startDateTime.getTime() + (60 * 60 * 1000));
+
+            const formatGCal = (date) => {
+                return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            };
+
+            const title = `${serviceName} at ${bizName}`;
+            const details = `Booking for ${serviceName} with ${bizName}.`;
+            
+            if (type === 'google') {
+                const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatGCal(startDateTime)}/${formatGCal(endDateTime)}&details=${encodeURIComponent(details)}&sf=true&output=xml`;
+                window.open(url, '_blank');
+            } else {
+                // Generate .ics file for Apple/Outlook
+                const icsContent = [
+                    "BEGIN:VCALENDAR",
+                    "VERSION:2.0",
+                    "BEGIN:VEVENT",
+                    `DTSTART:${formatGCal(startDateTime)}`,
+                    `DTEND:${formatGCal(endDateTime)}`,
+                    `SUMMARY:${title}`,
+                    `DESCRIPTION:${details}`,
+                    "END:VEVENT",
+                    "END:VCALENDAR"
+                ].join("\n");
+
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.setAttribute('download', 'appointment.ics');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
             }
         }
     </script>
